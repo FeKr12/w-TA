@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        @font-face {
+            font-family: "Bodoni72Oldstyle";
+            src: url("fonts/Bodoni 72 Oldstyle Bold.otf") format("opentype");
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+           background: white; background: white;
+            color: #161218;
+            font-family: "Bodoni72Oldstyle", "Bodoni 72", "Didot", serif;
+            overflow-x: hidden;
+        }
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .hero {
+            position: relative;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-title {
+            position: absolute;
+            left: 24px;
+            bottom: -1px;
+            font-size: clamp(4rem, 11vw, 7.2rem);
+            line-height: 0.85;
+            letter-spacing: -0.05em;
+            color: #f3f3f3;
+            text-transform: uppercase;
+            margin: 0;
+            z-index: 2;
+        }
+
+        .client-text {
+            position: relative;
+            background: white;
+            padding: 0px 60px 80px;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 140px;
+            margin-top: 40px;
+            display: flex;
+            align-items: start;
+        }
+
+
+        .content {
+            position: relative;
+            background: white;
+            padding: 0px 60px 80px;
+            min-height: 100vh;
+        }
+
+        .content-header {
+            max-width: 1200px;
+            margin: 0 auto 28px auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 32px;
+        }
+
+        .content-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+            .content-inner > div:first-child {
+                text-align: center;
+            }
+
+            .content-inner > div:last-child {
+                text-align: left;
+            }
+
+        .section-title {
+            font-size: clamp(1.4rem, 2.2vw, 2rem);
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            text-align: left;
+        }
+
+        .body-text {
+            font-size: clamp(1.1rem, 1.2vw, 1.6rem);
+            line-height: 1.45;
+            max-width: 450px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 34px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #161218;
+            font-size: 2rem;
+            line-height: 1;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+            .nav-link:hover {
+                opacity: 0.7;
+                transform: translateY(-1px);
+            }
+
+        .email {
+            display: inline-block;
+            margin-top: 6px;
+            color: #161218;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+            .email:hover {
+                opacity: 0.75;
+            }
+
+        .about-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin-left: -140px;
+
+            position: relative;
+            top: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                margin-bottom: 0px;
+            }
+
+            .hero-title {
+                left: 16px;
+                bottom: -24px;
+                font-size: clamp(3.2rem, 14vw, 5rem);
+            }
+
+            .content {
+                padding: 22px 18px 44px;
+            }
+
+            .content-header {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+
+            .top-nav {
+                gap: 18px;
+                justify-content: center;
+            }
+
+            .content-inner {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .content-wrapper {
+                gap: 100px;
+            }
+
+            .client-text {
+                padding: 0px 0px 0px;
+            }
+
+            .about-image {
+                margin-left: -100px;
+                top: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <section class="hero" aria-label="About hero image">
+            <img class="hero-image" src="images/oneway2.jpg" alt="About page hero image" />
+        </section>
+
+        <section class="content" id="about-content">
+            <div class="content-header">
+                <nav class="top-nav" aria-label="Huvudmeny">
+                    <a class="nav-link" href="work.html">WORK</a>
+                    <a class="nav-link" href="contact.html">CONTACT</a>
+                    <a class="nav-link" href="index.html">HOME</a>
+                </nav>
+            </div>
+
+            <div class="content-wrapper">
+                <div>
+                    <h2 class="section-title">BACKGROUND</h2>
+                    <div class="body-text">
+                        <p>
+                            Ture Andersson is an artist who cuts and pastes with is razor sharp teeth and sticky tongue.
+                            He currently resides on Gotland with his owner.
+                            <br><br>
+                        </p>
+                        <p>
+                            Before he became an artist he was a regular guy, back then he had no worries
+                            in life and spent his days eating bugs and basking under the heat lamp.
+                            <br><br>
+                        </p>
+                        <i>
+
+                            Represented by Steve Irwin<br />
+                        </i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="images/handfot.png" class="about-image">
+                    <!--<h2 class="section-title">&nbsp;</h2>-->
+                    <div class="client-text">
+                        <p>
+                            <strong>Selected clients:</strong><br />
+                            <i>
+                                Zoomarket, Skansen Zoo,<br />
+                                Källarmännen, Vogue, Dazed,<br />
+                                The Guardian and more...
+                            </i>
+                        <p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.addEventListener('load', () => {
+            const target = document.getElementById('about-content');
+            if (!target) return;
+
+            const startY = window.scrollY;
+            const endY = target.offsetTop - 250;
+            const duration = 2400;
+
+            let startTime = null;
+
+            function easeInOutCubic(t) {
+                return t < 0.5
+                    ? 4 * t * t * t
+                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function animateScroll(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeInOutCubic(progress);
+                const currentY = startY + (endY - startY) * eased;
+
+                window.scrollTo(0, currentY);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animateScroll);
+                }
+            }
+
+            setTimeout(() => {
+                requestAnimationFrame(animateScroll);
+            }, 400);
+        });
+    </script>
+</body>
+</html>

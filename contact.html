@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <style>
+        @font-face {
+            font-family: "Bodoni72Oldstyle";
+            src: url("fonts/Bodoni 72 Oldstyle Bold.otf") format("opentype");
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background: #f2f2f2;
+            color: black;
+            font-family: "Bodoni72Oldstyle", "Bodoni 72", "Didot", serif;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            padding: 48px 56px;
+            position: relative;
+        }
+
+        .top-nav {
+            position: absolute;
+            top: 56px;
+            right: 56px;
+            display: flex;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #1d171d;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+            .nav-link:hover {
+                opacity: 0.7;
+                transform: translateY(-1px);
+            }
+
+        .content {
+            width: min(540px, 100%);
+            text-align: center; 
+        }
+
+
+        .contact-card-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .contact-card {
+            width: 70vw;
+            max-width: 1000px;
+            height: auto;
+            object-fit: contain;
+            transform: translateY(8px);
+            filter: grayscale(1);
+        }
+
+
+
+        .text {
+            font-size: 1.5rem; 
+            line-height .email
+
+        {
+            display: inline-block;
+            margin-top: 8px;
+            color: #1d171d;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        .email:hover {
+            opacity: 0.75;
+        }
+
+        @media (max-width: 900px) {
+            .page {
+                padding: 28px 24px 40px;
+            }
+
+            .top-nav {
+                position: static;
+                justify-content: flex-end;
+                gap: 24px;
+                margin-bottom: 48px;
+            }
+
+            .content {
+                margin-left: 0;
+                padding-top: 20px;
+                width: 100%;
+            }
+
+            .title {
+                font-size: clamp(3.5rem, 18vw, 5.5rem);
+            }
+
+            .text {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav class="top-nav" aria-label="Huvudmeny">
+            <a class="nav-link" href="work.html">WORK</a>
+            <a class="nav-link" href="about.html">ABOUT</a>
+            <a class="nav-link" href="index.html">HOME</a>
+        </nav>
+
+        <section class="content">
+            <div class="contact-card-wrap">
+                <img class="contact-card" src="images/contact2.png" alt="contact-card-wrap" />
+            </div>
+
+
+
+            <p class="text">
+                If my art fits your project contact my agent Steve Irwin.<br />
+                <a class="email" href="mailto:steveirwin@lizardagent.com">steveirwin@lizardagent.com</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>

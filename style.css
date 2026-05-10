@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "Bodoni72Oldstyle";
+    src: url("fonts/Bodoni 72 Oldstyle Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+.menu-item {
+    font-family: "Bodoni72Oldstyle", serif;
+    color: white;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #010302;
+    color: #fff;
+    font-family: "BodoniOldstyle", serif;
+}
+
+.container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* Startsidans wrapper */
+.page {
+    /*padding-top: 3vw;*/
+    /*padding-bottom: 3vw;*/
+}
+
+/* Headerbilden */
+.header-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Menyn */
+.menu {
+    margin-top: 0.4vw;
+    width: 100%;
+    max-width: 420px;
+}
+
+    .menu a {
+        display: block;
+        width: fit-content;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: clamp(3rem, 6vw, 6.5rem);
+        line-height: 0.88;
+        letter-spacing: -0.04em;
+        padding: 0.02em 0 0.05em 0;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+        .menu a:hover {
+            transform: translateX(10px);
+            opacity: 0.82;
+        }
+
+/* Mobil */
+@media (max-width: 768px) {
+    .page {
+        padding-top: 4vw;
+        padding-left: 4vw;
+        padding-right: 4vw;
+        padding-bottom: 6vw;
+    }
+
+    .header-image {
+        width: 100%;
+        max-width: none;
+    }
+
+    .menu {
+        margin-top: 6px;
+        max-width: 75vw;
+    }
+
+        .menu a {
+            font-size: clamp(2.6rem, 12vw, 4.5rem);
+            line-height: 0.92;
+        }
+}
