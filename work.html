@@ -492,35 +492,47 @@
                 const target = document.getElementById("work-content");
                 if (!target) return;
 
-                const startY = window.scrollY;
-                const endY = target.offsetTop - 250;
-                const duration = 2500;
+                const isMobile = window.matchMedia("(max-width: 768px)").matches;
+                const offset = isMobile ? 75 : 250;
 
-                let startTime = null;
+                const duration = 2400;
 
-                function easeInOutCubic(t) {
-                    return t < 0.5
-                        ? 4 * t * t * t
-                        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                function easeInOutSine(t) {
+                    return -(Math.cos(Math.PI * t) - 1) / 2;
                 }
 
-                function animateScroll(timestamp) {
-                    if (!startTime) startTime = timestamp;
+                function smoothScrollTo(endY) {
+                    const startY = window.scrollY;
+                    const distance = endY - startY;
+                    const startTime = performance.now();
 
-                    const elapsed = timestamp - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const eased = easeInOutCubic(progress);
+                    function step(now) {
+                        const elapsed = now - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = easeInOutSine(progress);
 
-                    window.scrollTo(0, startY + (endY - startY) * eased);
+                        window.scrollTo(0, startY + distance * eased);
 
-                    if (progress < 1) {
-                        requestAnimationFrame(animateScroll);
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        }
                     }
+
+                    requestAnimationFrame(step);
                 }
 
                 setTimeout(() => {
-                    requestAnimationFrame(animateScroll);
-                }, 400);
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            const endY =
+                                target.getBoundingClientRect().top +
+                                window.scrollY -
+                                offset;
+
+                            smoothScrollTo(endY);
+                        });
+                    });
+                }, 900);
             });
         </script>
     </body>

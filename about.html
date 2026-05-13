@@ -273,40 +273,52 @@
     </main>
 
     <script>
-        window.addEventListener('load', () => {
-            const target = document.getElementById('about-content');
-            if (!target) return;
+window.addEventListener("load", () => {
+    const target = document.getElementById("about-content");
+    if (!target) return;
 
-            const startY = window.scrollY;
-            const endY = target.offsetTop - 250;
-            const duration = 2400;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const offset = isMobile ? 120 : 250;
 
-            let startTime = null;
+    const duration = 2400;
 
-            function easeInOutCubic(t) {
-                return t < 0.5
-                    ? 4 * t * t * t
-                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    function easeInOutSine(t) {
+        return -(Math.cos(Math.PI * t) - 1) / 2;
+    }
+
+    function smoothScrollTo(endY) {
+        const startY = window.scrollY;
+        const distance = endY - startY;
+        const startTime = performance.now();
+
+        function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeInOutSine(progress);
+
+            window.scrollTo(0, startY + distance * eased);
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
             }
+        }
 
-            function animateScroll(timestamp) {
-                if (!startTime) startTime = timestamp;
-                const elapsed = timestamp - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const eased = easeInOutCubic(progress);
-                const currentY = startY + (endY - startY) * eased;
+        requestAnimationFrame(step);
+    }
 
-                window.scrollTo(0, currentY);
+    setTimeout(() => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                const endY =
+                    target.getBoundingClientRect().top +
+                    window.scrollY -
+                    offset;
 
-                if (progress < 1) {
-                    requestAnimationFrame(animateScroll);
-                }
-            }
-
-            setTimeout(() => {
-                requestAnimationFrame(animateScroll);
-            }, 400);
+                smoothScrollTo(endY);
+            });
         });
-    </script>
+    }, 900);
+});
+</script>
 </body>
 </html>
