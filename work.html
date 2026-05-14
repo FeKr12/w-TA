@@ -495,7 +495,7 @@
                 const isMobile = window.matchMedia("(max-width: 768px)").matches;
                 const offset = isMobile ? 75 : 250;
 
-                const duration = isMobile ? 900 : 2400;
+                const duration = isMobile ? 300 : 2400;
 
                 function easeInOutSine(t) {
                     return -(Math.cos(Math.PI * t) - 1) / 2;
@@ -532,7 +532,7 @@
                             smoothScrollTo(endY);
                         });
                     });
-                }, 100);
+                }, 0);
             });
         </script>
     </body>
